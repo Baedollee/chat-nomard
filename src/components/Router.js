@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
-import { Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from '../routes/Home';
+import Auth from '../routes/Auth';
 
-const Router = () => {
-  const [isLogIn, setIsLogIn] = useState();
-
+const AppRouter = ({ isLogIn }) => {
   return (
-    <Router>
-      <Routes></Routes>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        {isLogIn ? (
+          <Route path='/' element={<Home />} />
+        ) : (
+          <Route path='/' element={<Auth />} />
+        )}
+      </Routes>
+    </BrowserRouter>
   );
 };
 
-export default Router;
+export default AppRouter;

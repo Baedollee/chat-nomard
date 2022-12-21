@@ -1,9 +1,15 @@
-import React from 'react';
-import firebase from '../firebase';
-console.log(firebase);
+import React, { useState } from 'react';
+import AppRouter from './Router';
+import { authService } from '../myBase';
 
 function App() {
-  return <div></div>;
+  const [isLogIn, setIsLogIn] = useState(authService.currentUser);
+  return (
+    <>
+      <AppRouter isLogIn={isLogIn} />
+      <footer>&copy; baewitter {new Date().getFullYear()}</footer>
+    </>
+  );
 }
 
 export default App;
