@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import AppRouter from './Router';
-import { authService } from '../myBase';
+import SignIn from './SignIn';
 
 function App() {
-  const [isLogIn, setIsLogIn] = useState(authService.currentUser);
   return (
     <>
-      <AppRouter isLogIn={isLogIn} />
+      <SignIn />
       <footer>&copy; baewitter {new Date().getFullYear()}</footer>
     </>
   );
